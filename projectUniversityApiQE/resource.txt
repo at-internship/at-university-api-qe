@@ -1,0 +1,5 @@
+/https://at-university-api.herokuapp.com/api/v1/course
+/https://at-university-api.herokuapp.com/api/v1/course
+/https://at-university-api.herokuapp.com/api/v1/course
+/https://at-university-api.herokuapp.com/api/v1/course
+/https://at-university-api.herokuapp.com/api/v1/course
