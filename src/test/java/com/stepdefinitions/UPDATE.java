@@ -38,7 +38,7 @@ public class UPDATE {
 	
 	@Given("I get an id as capital letters for update")
 	public void i_get_an_id_as_capital_letters_for_update() {
-		obj.put("id", "asdfhjasklfunakfyknyuadf");
+		obj.put("id", random.randomString());
 		
 	}
 	@Given("I have an id as numeric for update")
@@ -68,7 +68,7 @@ public class UPDATE {
 	
 	@Given("I have an category as capital letters for update")
 	public void i_have_an_category_as_capital_letters_for_update() {
-		obj.put("category", "JUAN");
+		obj.put("category", random.randomString());
 	}
 	@Given("I have an category as numeric for update")
 	public void i_have_an_category_as_numeric_for_update() {
@@ -93,7 +93,7 @@ public class UPDATE {
 	
 	@And("I have an title as capital letter for update")
 	public void i_have_an_title_as_capital_letters_for_update() {
-		obj.put("title", "Java 8 Basics");
+		obj.put("title", random.randomString());
 	}
 	@And("I have an title as numeric for update")
 	public void i_have_an_title_as_numeric_for_update() {
@@ -118,7 +118,7 @@ public class UPDATE {
 	
 	@And("I have an description as capital letters for update")
 	public void i_have_an_description_as_capital_letters_for_update() {
-		obj.put("description", "Update Java 8");
+		obj.put("description", random.randomString());
 	}
 	@And("I have an description as numeric for update")
 	public void i_have_an_description_as_numeric_for_update() {
@@ -143,7 +143,7 @@ public class UPDATE {
 	
 	@And("I have an img as capital letters for update")
 	public void i_have_an_img_as_capital_letters_for_update() {
-		obj.put("img", "juan.com");
+		obj.put("img", random.randomString());
 	}
 	@And("I have an img for as numeric update")
 	public void i_have_an_img_as_numeric_for_update() {
@@ -167,7 +167,7 @@ public class UPDATE {
 	
 	@And("I have an status as capital letters for update")
 	public void i_have_an_status_as_capital_letters_for_update() {
-		obj.put("status", "juan.com");
+		obj.put("status", random.randomString());
 	}
 	@And("I have an status as numeric for update")
 	public void i_have_an_status_as_numeric_for_update() {
@@ -181,6 +181,11 @@ public class UPDATE {
 	public void i_have_an_status_as_null_for_update() {
 		stat = null;
 		obj.put("status", stat);
+	}
+	
+	@And("I have a negative number for update")
+	public void i_have_a_negative_number_for_update() {
+		obj.put("status", random.genereteNegativeNumber());
 	}
 	
 	// W H E N

@@ -1,6 +1,8 @@
 package com.stepdefinitions;
 
 import com.globalClasses.*;
+
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -16,8 +18,10 @@ public class PostTest {
 	 private BasicSecurityUtil base;
      JSONArray jsonresult=new JSONArray();
 
-     String field, id="_id", cat="category",tit="title",desc="description",im="img", stat="status";
+     String field, id="_id", cat="category",tit="title",desc="description",im="img", stat="status", techString, nulo;
      JSONObject obj=new JSONObject();
+     boolean active = true;
+     
 
 
      String category,title,description,img;
@@ -30,25 +34,49 @@ public class PostTest {
     @Given("I have a course category outside the enum")
     public void i_have_a_course_category_outside_the_enum() {
         // Write code here that turns the phrase above into concrete actions
-        category="android";
+        category=random.randomName();
     }
 
     @Given("I have a title")
     public void i_have_a_title() {
         // Write code here that turns the phrase above into concrete actions
-        title=random.randomFirstName();
+        title=random.randomName();
+    }
+    
+    @And("I have a title numeric")
+    public void i_have_a_title_numeric() {
+        // Write code here that turns the phrase above into concrete actions
+        title=random.generateNumberUniversity();
+    }
+    
+    @And("I have a title boolean")
+    public void i_have_a_title_boolean() {
+        // Write code here that turns the phrase above into concrete actions
+    	obj.put("title", active);
     }
 
     @Given("I have a description")
     public void i_have_a_description() {
         // Write code here that turns the phrase above into concrete actions
-        description=random.randomPokemon();
+        description=random.randomString();
+    }
+    
+    @And("I have a description numeric")
+    public void i_have_a_description_numeric() {
+        // Write code here that turns the phrase above into concrete actions
+        description=random.generateNumberUniversity();
+    }
+    
+    @And("I have a description boolean")
+    public void i_have_a_description_boolean() {
+        // Write code here that turns the phrase above into concrete actions
+    	obj.put("description", active);
     }
 
     @Given("I have a img")
     public void i_have_a_img() {
         // Write code here that turns the phrase above into concrete actions
-        img=random.randomAlphanumeric();
+        img= "img.com";
     }
 
     @Given("I have a status")
@@ -78,9 +106,6 @@ public class PostTest {
 
     }
 
-
-
-
     @Given("I have a title is space blank")
     public void i_have_a_title_is_space_blank() {
         // Write code here that turns the phrase above into concrete actions
@@ -93,6 +118,21 @@ public class PostTest {
         // Write code here that turns the phrase above into concrete actions
         category="JaVa";
     }
+    @Given("I have a category")
+    public void i_have_a_category() {
+		techString = random.Tech();
+		category = techString;
+	}
+    @Given("I have a category numeric")
+    public void i_have_a_category_numeric() {
+		techString = random.Tech();
+		category = random.generateNumberUniversity();
+	}
+    @Given("I have a category null")
+    public void i_have_a_category_null() {
+		nulo = null;
+		category = nulo;
+	}
     @Given("I prepare the resource")
     public void i_prepare_the_resource() {
         // Write code here that turns the phrase above into concrete actions

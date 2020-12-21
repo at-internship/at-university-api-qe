@@ -10,16 +10,33 @@ public class RandomTools{
 	
 	public String generateNumberUniversity() {
 		String numberUniversity;
-		int random = (int)(Math.random()*(9999999-0000000+1)+0000000);
+		int random = (int)(Math.random()*(100));
 		numberUniversity = String.valueOf(random);
 		
 		return numberUniversity;
+	}
+	
+	public String genereteNegativeNumber() {
+		String negativeNumber;
+		int random=(int)(Math.random()*(-10));
+		negativeNumber = String.valueOf(random);
+		return negativeNumber;
 	}
 	
 	public String randomFirstName() {
 		String firstName = faker.name().firstName();
 		return firstName;
 	}
+	public String randomString() {
+		String string = faker.lorem().fixedString(10);
+		return string;
+	}
+	
+	public String randomName() {
+		String name = faker.name().title();
+		return name;
+	}
+
 	
 	public String randomPokemon() {
 		return faker.pokemon().name();

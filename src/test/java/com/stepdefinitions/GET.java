@@ -3,9 +3,12 @@ package com.stepdefinitions;
 import com.globalClasses.ApiPaths;
 import com.globalClasses.ApiTools;
 import com.globalClasses.BasicSecurityUtil;
+import com.globalClasses.MongoDBConnection;
+import com.globalClasses.MongoDBUtils;
 import com.globalClasses.MyTools;
 import com.globalClasses.RandomTools;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -18,6 +21,8 @@ public class GET {
 	boolean boolCheck = false;
 	boolean boolRetrieved = false;
 	
+	String allCourses;
+	
 	public GET(BasicSecurityUtil base) {
 		this.base = base;
 	}
@@ -29,6 +34,7 @@ public class GET {
 	public void i_need_see_all_sprints() {
 		base.param = "";
 	}
+	
 	
 	@When("I send GET request to API")
 	public void i_send_GET_request_to_API() {
@@ -56,5 +62,10 @@ public class GET {
 			Assert.assertEquals(value, base.response.getStatusCodeValue());
 			//Assert.assertEquals(statusCode, myTools.statusCode(String.valueOf(statusCodeRetrieved)));
 		}
+	
+	@And("I validate the mongodb data and the courses")
+    public void i_validate_the_mongodb_data_and_the_courses() {
+        assert true == MongoDBUtils.compareJsonString("TEST", "at-university-db", "courses", base.responseBody);
+    }
 
 }

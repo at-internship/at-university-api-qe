@@ -1,3 +1,5 @@
+@Update
+
 Feature: at-university-api-qe update operation
 
   @Scenario1
@@ -128,16 +130,6 @@ Feature: at-university-api-qe update operation
     When I update sprint using PUT operation
     Then I should return an status '200'
 
-  @Scenario13
-  Scenario: Update courses usign an title as null
-    Given I have an category for update
-    And I have an title as null for update
-    And I have an description for update
-    And I have an img for update
-    And I have an status for update
-    When I update sprint using PUT operation
-    Then I should return an status '200'
-
   #DESCRIPTION------------------------------------------
   @Scenario14
   Scenario: Update courses usign an description as capital letters
@@ -164,16 +156,6 @@ Feature: at-university-api-qe update operation
     Given I have an category for update
     And I have an title for update
     And I have an description as boolean for update
-    And I have an img for update
-    And I have an status for update
-    When I update sprint using PUT operation
-    Then I should return an status '200'
-
-  @Scenario17
-  Scenario: Update courses usign an description as null
-    Given I have an category for update
-    And I have an title for update
-    And I have an description as null for update
     And I have an img for update
     And I have an status for update
     When I update sprint using PUT operation
@@ -210,15 +192,15 @@ Feature: at-university-api-qe update operation
     When I update sprint using PUT operation
     Then I should return an status '200'
 
-  @Scenario21
-  Scenario: Update courses usign an img as null
-    Given I have an category for update
-    And I have an title for update
-    And I have an description for update
-    And I have an img for as null update
-    And I have an status for update
-    When I update sprint using PUT operation
-    Then I should return an status '200'
+  #@Scenario21
+  #Scenario: Update courses usign an img as null
+   # Given I have an category for update
+   # And I have an title for update
+   # And I have an description for update
+   # And I have an img for as null update
+   # And I have an status for update
+   # When I update sprint using PUT operation
+   # Then I should return an status '200'
 
   #STATUS-------------------------------------------------
   @Scenario22
@@ -260,3 +242,14 @@ Feature: at-university-api-qe update operation
     And I have an status as null for update
     When I update sprint using PUT operation
     Then I should return an status '404'
+    
+    @Scenario26
+    Scenario: Update status usign negative number
+    Given I have an category for update
+    And I have an title for update
+    And I have an description for update
+    And I have an img for update
+    And I have a negative number for update
+    When I update sprint using PUT operation
+    Then I should return an status '400'
+  

@@ -7,3 +7,4 @@ Feature: I need see my courses with the GET method
     Given I need see all courses
     When I send GET request to API
     Then Return an status '200'
+    And I validate the mongodb data and the courses
